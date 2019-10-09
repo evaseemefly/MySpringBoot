@@ -46,9 +46,9 @@ public class HelloController {
         * @Date:15:28 2019/9/28 
         */
         User user=new User();
-        user.setName("小明");
-        user.setAge(19);
-        user.setPass("123456");
+//        user.setName("小明");
+//        user.setAge(19);
+//        user.setPass("123456");
         return user;
     }
 

@@ -1,13 +1,102 @@
 package com.example.demo.model;
-import com.example.demo.enums.UserSexEnum;
-public class User {
 
+import com.example.demo.enums.UserSexEnum;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+// TODO:[*] 19-10-08 不使用此种方式使用jpa的方式
+//public class User {
+//
+//    private Long id;
+//    private String userName;
+//    private String passWord;
+//    private UserSexEnum userSex;
+//    private String nickName;
+//
+//    public User() {
+//    }
+//}
+
+@Entity
+public class User {
+    @Id
+    @GeneratedValue
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String userName;
-    private String passWord;
-    private UserSexEnum userSex;
+    @Column(nullable = false, unique = true)
+    private String email;
+
+
+    //    private UserSexEnum userSex;
+    @Column(nullable = true, unique = true)
     private String nickName;
+    @Column(nullable = false)
+    private String passWord;
+    @Column(nullable = false)
+    private String regTime;
 
     public User() {
+    }
+
+    //    public User() {
+//    }
+    public User(String userName, String passWord, String email, String nickName, String regTime) {
+        this.userName = userName;
+        this.passWord = passWord;
+        this.email = email;
+        this.nickName = nickName;
+        this.regTime = regTime;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getRegTime() {
+        return regTime;
+    }
+
+    public void setRegTime(String regTime) {
+        this.regTime = regTime;
     }
 }
